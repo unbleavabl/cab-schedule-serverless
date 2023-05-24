@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { getCabRequests } from "../../../services/cabRequest.service";
+import { getCabRequests } from "../../../../services/cabRequest.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "GET") {

@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { updateVehicle } from "../../services/vehicle.service";
+import { updateVehicle } from "../../../services/vehicle.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "PUT") {

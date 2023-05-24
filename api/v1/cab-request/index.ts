@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import {
   createCabRequest,
   getCabRequests,
-} from "../../services/cabRequest.service";
+} from "../../../services/cabRequest.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "GET") {

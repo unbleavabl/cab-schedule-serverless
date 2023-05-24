@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { deleteRoute, updateRoute } from "../../services/route.service";
+import { deleteRoute, updateRoute } from "../../../services/route.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "PUT") {
