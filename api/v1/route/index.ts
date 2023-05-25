@@ -3,10 +3,10 @@ import { createRoute, getRoutes } from "../../../services/route.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "GET") {
-    return res.json(getRoutesController(req, res));
+    return getRoutesController(req, res);
   }
   if (req.method === "POST") {
-    return res.json(createRoutesController(req, res));
+    return createRoutesController(req, res);
   }
   return res.status(404);
 };

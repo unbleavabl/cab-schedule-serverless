@@ -3,7 +3,7 @@ import { updateVehicle } from "../../../services/vehicle.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "PUT") {
-    return res.json(updateVehicleController(req, res));
+    return updateVehicleController(req, res);
   }
   return res.status(404);
 };

@@ -6,10 +6,10 @@ import {
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "GET") {
-    return res.json(getCabRequestsController(req, res));
+    return getCabRequestsController(req, res);
   }
   if (req.method === "POST") {
-    return res.json(createCabRequestsController(req, res));
+    return createCabRequestsController(req, res);
   }
   return res.status(404);
 };

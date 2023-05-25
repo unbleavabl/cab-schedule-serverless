@@ -3,7 +3,7 @@ import { updateCabRequest } from "../../../services/cabRequest.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "PUT") {
-    return res.json(updateCabRequestController(req, res));
+    return updateCabRequestController(req, res);
   }
   return res.status(404);
 };

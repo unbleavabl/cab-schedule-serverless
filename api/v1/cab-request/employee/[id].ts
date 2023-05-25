@@ -3,7 +3,7 @@ import { getCabRequests } from "../../../../services/cabRequest.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "GET") {
-    return res.json(getCabRequestsForEmployeeController(req, res));
+    return getCabRequestsForEmployeeController(req, res);
   }
   return res.status(404);
 };

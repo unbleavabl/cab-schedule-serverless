@@ -3,10 +3,10 @@ import { createVendor, getVendors } from "../../../services/vendor.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "GET") {
-    return res.json(getVendorsController(req, res));
+    return getVendorsController(req, res);
   }
   if (req.method === "POST") {
-    return res.json(createVendorController(req, res));
+    return createVendorController(req, res);
   }
   return res.status(404);
 };

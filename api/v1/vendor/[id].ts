@@ -3,7 +3,7 @@ import { updateVendor } from "../../../services/vendor.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "PUT") {
-    return res.json(updateVendorController(req, res));
+    return updateVendorController(req, res);
   }
   return res.status(404);
 };

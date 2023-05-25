@@ -3,10 +3,10 @@ import { deleteRoute, updateRoute } from "../../../services/route.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "PUT") {
-    return res.json(updateRouteController(req, res));
+    return updateRouteController(req, res);
   }
   if (req.method === "DELETE") {
-    return res.json(deleteRouteController(req, res));
+    return deleteRouteController(req, res);
   }
   return res.status(404);
 };

@@ -3,10 +3,10 @@ import { createVehicle, getVehicles } from "../../../services/vehicle.service";
 
 const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "GET") {
-    return res.json(getVehiclesController(req, res));
+    return getVehiclesController(req, res);
   }
   if (req.method === "POST") {
-    return res.json(createVehicleController(req, res));
+    return createVehicleController(req, res);
   }
   return res.status(404);
 };
