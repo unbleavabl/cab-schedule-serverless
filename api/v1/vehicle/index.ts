@@ -18,7 +18,7 @@ const getVehiclesController = async (
   const { vendorId } = req.query;
   const result = await getVehicles({
     filters: {
-      vendorId: parseInt(vendorId as string),
+      vendorId: vendorId ? parseInt(vendorId as string) : undefined,
     },
   });
   res.status(200).json(result);
