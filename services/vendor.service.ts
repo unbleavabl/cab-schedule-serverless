@@ -14,7 +14,9 @@ export type UpdateVendor = {
 };
 
 export const getVendors = async () => {
-  const result = await prisma.vendor.findMany();
+  const result = await prisma.vendor.findMany({
+    where: {},
+  });
   return result;
 };
 
