@@ -8,6 +8,9 @@ const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "POST") {
     return createRoutesController(req, res);
   }
+  if (req.method === "OPTIONS") {
+    return res.status(200).json({ body: "OK" });
+  }
   return res.status(404);
 };
 
@@ -24,7 +27,10 @@ const getRoutesController = async (req: VercelRequest, res: VercelResponse) => {
   res.status(200).json(result);
 };
 
-const createRoutesController = async (req: VercelRequest, res: VercelResponse) => {
+const createRoutesController = async (
+  req: VercelRequest,
+  res: VercelResponse
+) => {
   const body = req.body;
   const result = await createRoute({
     pickupTime: body.pickupTime,

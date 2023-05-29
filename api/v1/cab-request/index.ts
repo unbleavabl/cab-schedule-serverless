@@ -11,6 +11,9 @@ const handler = (req: VercelRequest, res: VercelResponse) => {
   if (req.method === "POST") {
     return createCabRequestsController(req, res);
   }
+  if (req.method === "OPTIONS") {
+    return res.status(200).json({ body: "OK" });
+  }
   return res.status(404);
 };
 
