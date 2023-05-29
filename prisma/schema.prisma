@@ -56,7 +56,7 @@ model Route {
 
 model Vendor {
   id       Int       @id @default(autoincrement())
-  name     String
+  name     String    @unique
   vehicles Vehicle[]
 
   deleted Boolean @default(false)
