@@ -6,6 +6,9 @@ export type CreateCabRequest = {
   pickupLocation: string;
   dropLocation: string;
   pickupTime: string;
+  projectCode: string;
+  phoneNumber: string;
+  expireDate?: string;
 };
 
 export type UpdateCabRequest = {
@@ -33,14 +36,20 @@ export const createCabRequest = async ({
   pickupLocation,
   dropLocation,
   pickupTime,
+  expireDate,
+  phoneNumber,
+  projectCode,
 }: CreateCabRequest) => {
   const result = await prisma.cabRequest.create({
     data: {
       employeeName,
       employeeId,
+      phoneNumber,
+      projectCode,
       pickupLocation,
       dropLocation,
       pickupTime,
+      expireDate: expireDate || pickupTime,
       status: "PENDING",
     },
   });
@@ -83,8 +92,8 @@ export const getCabRequests = async (opts?: GetCabRequests) => {
       routeId,
       status,
       pickupTime: {
-        gte: (new Date()).toISOString()
-      }
+        gte: new Date().toISOString(),
+      },
     },
   });
   return result;

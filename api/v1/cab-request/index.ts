@@ -36,6 +36,9 @@ const createCabRequestsController = async (
     pickupLocation: body.pickupLocation,
     dropLocation: body.dropLocation,
     pickupTime: body.pickupTime,
+    projectCode: body.projectCode,
+    phoneNumber: body.phoneNumber,
+    expireDate: body.expireDate,
   });
 
   res.status(200).json(result);

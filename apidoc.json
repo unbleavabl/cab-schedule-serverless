@@ -1,0 +1,6 @@
+{
+  "name": "cab-schedule",
+  "version": "0.0.1",
+  "description": "Documentation for cab scheduler apis",
+  "sampleUrl": "https://cab-schedule-serverless.vercel.app/api"
+}

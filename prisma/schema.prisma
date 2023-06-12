@@ -17,9 +17,12 @@ model CabRequest {
   updatedAt      DateTime @updatedAt
   employeeId     String
   employeeName   String
+  projectCode    String
+  phoneNumber    String
   pickupLocation String
   dropLocation   String
   pickupTime     DateTime
+  expireDate     DateTime
   status         String
   deleted        Boolean  @default(false)
 
