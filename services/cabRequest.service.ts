@@ -91,7 +91,7 @@ export const getCabRequests = async (opts?: GetCabRequests) => {
       employeeId,
       routeId,
       status,
-      pickupTime: {
+      expireDate: {
         gte: new Date().toISOString(),
       },
     },
