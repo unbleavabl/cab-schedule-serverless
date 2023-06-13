@@ -14,6 +14,7 @@ export type CreateRouteRequired = {
   startLocation: string;
   endLocation: string;
   pickupTime: string;
+  name: string;
 };
 
 export type UpdateRoute = {
@@ -98,13 +99,14 @@ export const getRoutes = async (opts?: GetRoutes) => {
 };
 
 export const createRoute = async (createRouteRequest: CreateRoute) => {
-  const { startDate, expireDate, startLocation, endLocation, pickupTime } =
+  const { startDate, expireDate, startLocation, endLocation, pickupTime, name } =
     createRouteRequest;
   const updatedStartDate = new Date(startDate).toISOString();
   const updatedExpireDate = new Date(expireDate).toISOString();
   if (hasVehicleId(createRouteRequest)) {
     const result = await prisma.route.create({
       data: {
+        name: name || '',
         startDate: updatedStartDate,
         expireDate: updatedExpireDate,
         startLocation,
@@ -119,6 +121,7 @@ export const createRoute = async (createRouteRequest: CreateRoute) => {
   if (hasVendorId(createRouteRequest.vehicle)) {
     const result = await prisma.route.create({
       data: {
+        name: name || '',
         startDate: updatedStartDate,
         expireDate: updatedExpireDate,
         startLocation,
@@ -136,6 +139,7 @@ export const createRoute = async (createRouteRequest: CreateRoute) => {
 
   const result = await prisma.route.create({
     data: {
+      name: name || '',
       startDate: updatedStartDate,
       expireDate: updatedExpireDate,
       startLocation,

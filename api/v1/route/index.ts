@@ -34,6 +34,7 @@ const createRoutesController = async (
   const body = req.body;
   const result = await createRoute({
     pickupTime: body.pickupTime,
+    name: body.name,
     startLocation: body.startLocation,
     endLocation: body.endLocation,
     startDate: body.startDate,
