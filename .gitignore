@@ -35,4 +35,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-.env
+
+prisma/ /Users/apple/Documents/projects/O_Projects/cab-schedule-serverless/data.db
+prisma/migrations/migration_lock.toml
+data.db
+prisma/migrations/20230620094608_init/migration.sql
+prisma/.env
