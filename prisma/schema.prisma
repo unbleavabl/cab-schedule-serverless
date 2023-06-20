@@ -25,7 +25,8 @@ model CabRequest {
   expireDate     DateTime
   status         String
   deleted        Boolean  @default(false)
-
+  vendorId Int?
+  vendor  Vendor? @relation(fields: [vendorId], references: [id])
   routeId Int?
   route   Route? @relation(fields: [routeId], references: [id])
 }
@@ -35,7 +36,6 @@ model Vehicle {
   driverName String
 
   vendorId Int
-  vendor   Vendor @relation(fields: [vendorId], references: [id])
 
   Route Route[]
 
@@ -48,7 +48,7 @@ model Route {
   startLocation String
   endLocation   String
   pickupTime    Int
-  startDate     DateTime     @db.Date()
+  startDate     DateTime 
   cabRequests   CabRequest[]
   expireDate    DateTime
 
@@ -61,7 +61,6 @@ model Route {
 model Vendor {
   id       Int       @id @default(autoincrement())
   name     String    @unique
-  vehicles Vehicle[]
-
+  cabRequests   CabRequest[]
   deleted Boolean @default(false)
 }
