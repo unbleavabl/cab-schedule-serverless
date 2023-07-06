@@ -27,6 +27,7 @@ const handler = (req: VercelRequest, res: VercelResponse) => {
  * @apiBody {String} cabRequest.status  Status of the cab request - "PENDING" / "APPROVED" / "REJECTED".
  * @apiBody {Boolean} cabRequest.deleted  Soft delete flag
  * @apiBody {Number} [cabRequest.routeId]  Id of route if assigned or null
+ * @apiBody {Number} [cabRequest.vendorId]  Id of vendor if assigned or null
  *
  * @apiSuccess {Object} cabRequest List of cab requests
  * @apiSuccess {Number} cabRequest.id Id of the cab request.
@@ -39,22 +40,24 @@ const handler = (req: VercelRequest, res: VercelResponse) => {
  * @apiSuccess {String} cabRequest.status  Status of the cab request - "PENDING" / "APPROVED" / "REJECTED".
  * @apiSuccess {Boolean} cabRequest.deleted  Soft delete flag
  * @apiSuccess {Number} [cabRequest.routeId]  Id of route if assigned or null
+ * @apiSuccess {Number} [cabRequest.vendorId]  Id of vendor if assigned or null
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *     [
- *      {
- *          "id": 7,
- *          "createdAt": "2023-05-31T07:03:00.221Z",
- *          "updatedAt": "2023-05-31T07:03:00.221Z",
- *          "employeeId": "11111",
- *          "employeeName": "xyz",
- *          "pickupLocation": "here",
- *          "dropLocation": "there",
- *          "pickupTime": "2023-06-30T08:55:18.252Z",
- *          "status": "PENDING",
- *          "deleted": false,
- *          "routeId": null
- *      },
+//  *      {
+//  *          "id": 7,
+//  *          "createdAt": "2023-05-31T07:03:00.221Z",
+//  *          "updatedAt": "2023-05-31T07:03:00.221Z",
+//  *          "employeeId": "11111",
+//  *          "employeeName": "xyz",
+//  *          "pickupLocation": "here",
+//  *          "dropLocation": "there",
+//  *          "pickupTime": "2023-06-30T08:55:18.252Z",
+//  *          "status": "PENDING",
+//  *          "deleted": false,
+//  *          "routeId": null,
+//  *          "vendorId": null
+//  *      },
  *      {
  *          "id": 9,
  *          "createdAt": "2023-05-31T07:03:00.221Z",
@@ -67,6 +70,7 @@ const handler = (req: VercelRequest, res: VercelResponse) => {
  *          "status": "APPROVED",
  *          "deleted": false,
  *          "routeId": 1234
+ *          "vendorId": 12
  *      },
  *    ]
  */
@@ -85,6 +89,7 @@ const updateCabRequestController = async (
     pickupTime: body.pickupTime,
     status: body.status,
     routeId: body.routeId,
+    vendorId: body.vendorId,
   });
 
   res.status(200).json(result);

@@ -26,6 +26,7 @@ const createVendorController = async (
   const body = req.body;
   const result = await createVendor({
     name: body.name,
+    phoneNumber: body.phoneNumber,
     vehicles: body.vehicles,
   });
   res.status(200).json(result);

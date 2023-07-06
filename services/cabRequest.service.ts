@@ -20,6 +20,7 @@ export type UpdateCabRequest = {
   pickupTime?: string;
   status?: string;
   routeId?: number;
+  vendorId?: number;
 };
 
 export type GetCabRequests = {
@@ -66,6 +67,7 @@ export const updateCabRequest = async ({
   pickupTime,
   status,
   routeId,
+  vendorId,
 }: UpdateCabRequest) => {
   const result = await prisma.cabRequest.update({
     where: {
@@ -79,6 +81,7 @@ export const updateCabRequest = async ({
       pickupTime,
       status,
       routeId,
+      vendorId,
     },
   });
   return result;

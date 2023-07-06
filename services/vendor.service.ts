@@ -1,3 +1,4 @@
+import { CabRequest } from "@prisma/client";
 import prisma from "../lib/prisma";
 
 export type CreateVendor = {
@@ -6,6 +7,8 @@ export type CreateVendor = {
     id: string;
     driverName: string;
   };
+  cabRequests?: any;
+  phoneNumber: string;
 };
 
 export type UpdateVendor = {
@@ -20,10 +23,17 @@ export const getVendors = async () => {
   return result;
 };
 
-export const createVendor = async ({ name, vehicles }: CreateVendor) => {
+export const createVendor = async ({
+  name,
+  vehicles,
+  phoneNumber,
+  cabRequests,
+}: CreateVendor) => {
   const result = await prisma.vendor.create({
     data: {
+      phoneNumber,
       name,
+      cabRequests: cabRequests ? cabRequests : undefined,
       vehicles: vehicles
         ? {
             create: {

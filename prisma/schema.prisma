@@ -28,6 +28,9 @@ model CabRequest {
 
   routeId Int?
   route   Route? @relation(fields: [routeId], references: [id])
+
+  vendorId Int?
+  vendor  Vendor? @relation(fields: [vendorId], references: [id])
 }
 
 model Vehicle {
@@ -59,9 +62,10 @@ model Route {
 }
 
 model Vendor {
-  id       Int       @id @default(autoincrement())
-  name     String    @unique
-  vehicles Vehicle[]
-
-  deleted Boolean @default(false)
+  id            Int       @id @default(autoincrement())
+  name          String    @unique
+  phoneNumber   String
+  vehicles      Vehicle[]
+  cabRequests   CabRequest[]
+  deleted       Boolean @default(false)
 }
